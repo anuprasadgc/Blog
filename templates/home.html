@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+ <div class="card bg-dark">
+            <img src="https://source.unsplash.com/W8Qqn1PmQH0/1600x800" class="card-img" alt="bodybackground">
+            <div class="card-img-overlay">
+
+                
+                    <div class="main" style="padding-left:460px;padding-top:200px">
+                        <a href="{% url 'createblog' %}"><button class="a" style="margin-right:10px;">+ New Post</button></a>
+                    <a href="{% url 'viewblog' %}"> <button class="b">View All Post</button></a>
+                        
+                    </div>
+
+            </div>
+ </div>
+</body>
+</html>

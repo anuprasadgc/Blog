@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+</head>
+<body>
+    <!-- hai your viewing blog
+    <img src = "{% static 'images/002.jpg' %}"> -->
+
+    <table border="1" style="width:800px">
+        <tr>
+           <td>TITLE</td>
+   
+   
+           <td>CATOGARY</td>
+   
+   
+           <td colspan="3">OPERATIONS</td>
+       </tr>
+       {% for i in s%}
+       <tr>
+           <td>{{i.title}}</td>
+           <td>{{i.category}}</td>
+           <td><a href="{% url 'viewoneblog' i.pk %}">view</a> </td>
+           <td><a href="{% url 'editblog' i.pk %}">edit</a> </td>
+           <td><a href="{% url 'deleteblog' i.pk %}">delete</a> </td>
+       </tr>
+       {% endfor %}
+   </table>
+</body>
+</html>
