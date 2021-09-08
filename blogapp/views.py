@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from blogapp.forms import *
 from blogapp.models import *
 from django.db.models import Q
+from pyexpat.errors import messages
+
 # Create your views here.
 
 def login(request):
@@ -51,11 +53,11 @@ def search(request):
     if request.method == "POST":
         srch = request.POST['srh']
         if srch:
-            match = Blogpost.objects.filter(Q(title__icontains=srch) | Q(author__icontains=srch))
+            match = Blogpost.objects.filter(Q(title__icontains=srch) | Q(category__icontains=srch))
             if match:
                 return render(request, 'search.html', {'sr': match})
             else:
-                return search(request)
+                return HttpResponse("NO results Found")
         else:
             return HttpResponse("NO results Found")
 
